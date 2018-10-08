@@ -1,0 +1,307 @@
+/* 样式初始化*/
+*{
+    margin:0px;
+    padding:0px;
+}
+a{
+    color:#d4d4d4;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover{
+    color: #e5e5e5;
+}
+li{
+    list-style: none;
+}
+/* body样式*/
+body{
+    background-color:#e5e5e5;
+}
+
+/**************** 头部开始******************/
+/* 头部盒子样式*/
+header{
+    height:50px;
+    width:99.8%;
+    margin:auto;
+    background-color: #080808;
+    border-bottom:1px solid #e5e5e5;
+}
+/*头部外边框 */
+.header_border{
+    width:100%;
+    height:100%;
+}
+/* 网站logo和登录状态的样式*/
+.header_logo{
+    width:10%;
+    height:99.8%;
+    overflow: hidden;
+    float: left;
+   /* border:1px solid yellow;*/
+    font-size:x-large;
+    font-weight:bolder;
+    line-height: 50px;
+    text-align:center;
+    color:#d4d4d4;
+
+}
+/* 头部标题样式*/
+.header_title{
+    width:10%;
+    height:99.8%;
+    padding:0px 2.896%;
+    list-style-type:none;
+    float: left;
+   /* border:1px solid gray;*/
+    font-size:x-large;
+    line-height: 50px;
+    text-align:center;
+    color:#d4d4d4;
+    overflow: hidden;
+}
+/* 头部标题的hover样式*/
+.header_title:hover{
+    color: white;
+    cursor: pointer;
+}
+/****************头部结束******************/
+/****************登陆窗口******************/
+.loginBox{
+    display:none;
+    width:99.8%;
+
+    border:1px solid red;
+}
+/****************登陆窗口结束******************/
+
+/**************** 第一板块开始******************/
+/* 第一版块儿*/
+.data_show{
+    width:99.8%;
+  /*  height:590px; */
+  /*  border:1px solid red; */
+}
+/* 分类盒子的外盒*/
+.data_list_box{
+    display:inline-block;
+    width:49.4%;
+    height:100%;
+    margin:10px auto;
+    vertical-align: top;
+}
+/*数据盒子的标题 */
+.data_title{
+    display:inline-block;
+    width:99.8%;
+    height:25px;
+    margin:auto;
+    background-color: #d4d4d4;
+    color: #323232a4;
+    font-size:x-large;
+    line-height:25px;
+    text-align:center;
+}
+/* 数据显示盒子样式*/
+.data_box{
+    width:95%;
+    height:100%;
+    margin:auto;
+}
+/* 数据内容显示盒子*/
+.data_content_box{
+    display:inline-block;
+    width:100%;
+    height:80px;
+    list-style:none;
+    margin:auto;
+   border-bottom:1px dotted gray;
+}
+.img_photo{
+    display:inline-block;
+    width:30%;
+    height:98%;
+    margin:2px 5px;
+    border:solid 1px green;
+}
+.content_box{
+    display:inline-block;
+    vertical-align:top;
+    width:65%;
+    height: 98%;
+    margin:2px 5px;
+    border:solid 1px red;
+
+}
+.itemTitle{
+    display:inline-block;
+    width:49%;
+    font-size:18px;
+    text-align: center;
+}
+.itemContectUser{
+    display:inline-block;
+    width:49%;
+    font-size:18px;
+    text-align: center;
+    cursor: pointer;
+}
+.itemDescribe{
+    display:inline-block;
+    background-color: transparent;
+    resize: none;
+    width:100%;
+    height:65%;
+    text-indent: 20px;
+    overflow: hidden;
+}
+/**************** 第一板块结束******************/
+
+/**************** 第二板块开始******************/
+/* 第二板块盒子样式*/
+.dataPut_box{
+    width:99.8%;
+  /*  border:1px solid green; */
+    background-color:#efefef;
+    padding-top:30px;
+}
+/* 内容列表盒子样式*/
+.dataPut_list_box{
+    width:100%;
+    height:100%;
+    margin:30px auto;
+}
+/*内容盒子样式*/
+.dataPut_content_box{
+    display:inline-block;
+    width:49.4%;
+   /* height:50px;*/
+    margin:10px auto;
+    text-align:center;
+    line-height:50px;
+  /*  border:1px solid red; */
+}
+/*单行内容输入样式*/
+.text_input{
+    width:60%;
+    height:24px;
+    padding:5px;
+    margin:0px 20px;
+}
+/*多行内容输入样式*/
+.textarea_input{
+    width:60%;
+    height:80px;
+    padding:5px;
+    margin:10px 20px;
+    resize: none;
+    text-indent: 15px;
+    vertical-align: top;
+}
+/*选择内容样式*/
+.select_option{
+    width:60%;
+    height:30px;
+    margin:0px 20px;
+}
+/* 提交按钮样式*/
+.btn_input{
+    display:inline-block;
+    width: 98.8%;
+    height:24px;
+    margin:10px auto;
+    line-height: 24px;
+    padding:5px;
+    font-size:x-large;
+    text-align:center;
+    background-color:#32323278;
+    cursor:pointer;
+
+}
+/**************** 第二板块结束******************/
+
+/**************** 第三板块开始******************/
+/* 第三版块儿盒子样式*/
+.contact_box{
+    width:99.8%;
+  /*  border:1px solid red; */
+    background-color:#a5a5a5d1;
+}
+/* 联系板块第一块和第三块样式*/
+.contact_ones{
+    display:inline-block;
+    width:19.9%;
+    margin-top:30px;
+    vertical-align: top;
+  /*  border:1px solid green; */
+
+}
+/*联系板块第二板块样式*/
+.contact_two{
+    display:inline-block;
+    width:59%;
+    margin-top:30px;
+    vertical-align: top;
+  /*  border:1px solid yellow; */
+}
+
+/*显示文本样式*/
+.text_content{
+    display:inline-block;
+    width:95%;
+    height:24px;
+    margin:10px auto;
+    line-height: 24px;
+    padding:5px;
+    text-indent: 15px;
+}
+
+/*反馈li内容*/
+.report_li{
+    margin:10px;
+}
+
+.contact_a{
+    color:black;
+}
+/**************** 第三板块结束******************/
+
+/**************** 网站底部开始*****************/
+.footer_box{
+    width:99.8%;
+    margin-top:10px;
+    background-color:#080808;
+}
+.footer_text{
+    display:inline-block;
+    width:24%;
+    padding:10px 0px;
+    color:#e5e5e5;
+    text-align:center;
+    line-height:20px;
+}
+/**************** 网站底部结束*****************/
+
+/****************** 自适应样式*************************/
+@media screen and (max-width: 1024px) {
+    /*样式初始化*/
+
+    /* 第一个板块·自适应*/
+    .data_list_box{
+        width:99.8%;
+        border: 1px solid #32323266;
+    }
+
+    /* 第二板块自适应*/
+    .dataPut_content_box{
+        width:99.8%;
+    }
+    /*第三板块自适应*/
+    .contact_ones{
+        width:100%;
+    }
+    .contact_two{
+        width:100%;
+    }
+}
