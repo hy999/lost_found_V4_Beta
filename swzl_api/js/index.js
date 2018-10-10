@@ -1,4 +1,4 @@
- var pageNumber=1;
+﻿ var pageNumber=1;
 function postData(type,data) {
     var oAjax = null,okMessage;
     //post提交的数据
@@ -126,7 +126,7 @@ function putData(){
 }
 //文档加载完毕执行内容
 window.onload = function () {
-    //selLogin();//验证cookie
+    // selLogin();//验证cookie
     alert("尊敬的用户您好：\n\r目前本网站仅支持数据的发布与显示，其它功能将在后面的更新中完善。\n\r因为网站资源有限，暂时不支持图片的上传，请将图片上传到其它公开的图片空间，获取图片的链接填写，感谢您的配合！\n\r 在您发布数据时，请注意遵守中华人民共和国相关法律法规以及道德规范要求，请勿发布非法及恶意的言论。\n\r感谢您的配合！！");
     postData("data_lost","Key=getData&getType=lost&pageNumber=1");
     postData("data_pick","Key=getData&getType=pick&pageNumber=1");

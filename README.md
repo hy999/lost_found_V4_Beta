@@ -7,7 +7,7 @@ It's my first program that to help somebody whom lost something.
 
 The program only have two function:
 
-1,To show zhe information wherever lost or found(pick something)
+1,To show the information wherever lost or found(pick something)
 
 2,Put something to server database.
 
