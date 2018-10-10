@@ -40,3 +40,17 @@ And the api-server is using C#.(No ASP.NET CORE)
 2. New a Feat_xxx
 3. Put you code
 4. New a Pull Request
+
+##Update Log
+Time: Otc 10 2018
+
+###Update value:
+
+####Fixed the bug: 
+
+The index.html could not show the contact about the people whom put the data. 
+
+####Add a value:
+
+Added a information in the put-data table-----Contact
+

@@ -64,7 +64,7 @@ function postData(type,data) {
                 else if(type==="putData"){
                     alert(okMessage);
                 }
-                else{}
+
             } catch (e) {
                 okMessage = '你访问的页面出错了';
             }
@@ -122,7 +122,7 @@ function show_loginBox(){
 function putData(){
     var date=new Date();
 
-    postData("putData", "Key=putData&itemTitle=" + document.getElementById("itemTitle").value + "&itemType=" + document.getElementById("itemType").value + "&Address=" + document.getElementById("Address").value + "&Time=" + document.getElementById("Time").value + "&imgUrl=" + document.getElementById("imgUrl").value + "&putType=" + document.getElementById("putType").value + "&itemDescribe=" + document.getElementById("itemDescribe").value + "&putTime=" + date.toUTCString()+ "&putUser=admin")
+    postData("putData", "Key=putData&itemTitle=" + document.getElementById("itemTitle").value + "&itemType=" + document.getElementById("itemType").value + "&Address=" + document.getElementById("Address").value + "&Time=" + document.getElementById("Time").value + "&imgUrl=" + document.getElementById("imgUrl").value + "&putType=" + document.getElementById("putType").value + "&itemDescribe=" + document.getElementById("itemDescribe").value + "&putTime=" + date.toUTCString()+ "&putUser=联系方式："+document.getElementById("contact_user".value))
 }
 //文档加载完毕执行内容
 window.onload = function () {
