@@ -43,9 +43,17 @@ And the api-server is using C#.(No ASP.NET CORE)
 
 ## Update Log
 <hr>
+Time:Otc 12 2018
+
+### update values:
+#### Add a value or fixed a logic bug:
+Add a judge before you put some data to server,
+
+Add some Response code to judged wherever fail or succeed
+<hr>
 Time: Otc 10 2018
 
-### Update value:
+### Update values:
 
 #### Fixed the bug: 
 
