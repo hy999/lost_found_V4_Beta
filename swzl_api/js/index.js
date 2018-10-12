@@ -62,7 +62,11 @@ function postData(type,data) {
                 }
                 else if(type==="register"){}
                 else if(type==="putData"){
-                    alert(okMessage);
+                    if(okMessage==="200"){
+                        alert("数据上传成功！");
+                    }else{
+                        alert("数据上传服务器出现错误，请等待。。。");
+                    }
                 }
 
             } catch (e) {
@@ -118,11 +122,25 @@ function login(){
 function show_loginBox(){
     document.getElementById("loginBox").style.display="block";
 }
-
+function judged(type) {
+    if(type==="putData"){
+        if(document.getElementById("itemTitle").value!==""&&document.getElementById("itemType").value!==""&&document.getElementById("Time").value!==""&&document.getElementById("Address").value!==""&&document.getElementById("putType").value!==""&&document.getElementById("contact_user").value!==""){
+            return "ok";
+        }else{
+            return "err";
+        }
+    }else{
+        return "err";
+    }
+}
 function putData(){
+    var judge=judged("putData");
+    if(judge==="ok"){
     var date=new Date();
-
-    postData("putData", "Key=putData&itemTitle=" + document.getElementById("itemTitle").value + "&itemType=" + document.getElementById("itemType").value + "&Address=" + document.getElementById("Address").value + "&Time=" + document.getElementById("Time").value + "&imgUrl=" + document.getElementById("imgUrl").value + "&putType=" + document.getElementById("putType").value + "&itemDescribe=" + document.getElementById("itemDescribe").value + "&putTime=" + date.toUTCString()+ "&putUser=联系方式："+document.getElementById("contact_user".value))
+        postData("putData", "Key=putData&itemTitle=" + document.getElementById("itemTitle").value + "&itemType=" + document.getElementById("itemType").value + "&Address=" + document.getElementById("Address").value + "&Time=" + document.getElementById("Time").value + "&imgUrl=" + document.getElementById("imgUrl").value + "&putType=" + document.getElementById("putType").value + "&itemDescribe=" + document.getElementById("itemDescribe").value + "&putTime=" + date.toUTCString()+ "&putUser=联系方式："+document.getElementById("contact_user".value))
+    }else{
+        alert("标记为*号的内容为必填选项，请填写后再试！");
+    }
 }
 //文档加载完毕执行内容
 window.onload = function () {

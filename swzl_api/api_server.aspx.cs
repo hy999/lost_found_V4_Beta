@@ -80,14 +80,19 @@ namespace swzl_api
                 //判断上传类型
                 if (putType == "lost") {
                     sql = "insert into [lostTable] ([userName],[itemTitle],[imgUrl],[itemDescribe],[lostAddr],[lostTime],[itemStatution],[putTime]) values('"+putUser+"','"+itemTitle+"','"+imgUrl+"','"+itemDescribe+"','"+Address+"','"+Time+"','L0','"+putTime+"')";
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    Response.Write("200");
                 }
                 else if (putType == "pick") {
                     sql = "insert into [pickTable] ([userName],[itemTitle],[imgUrl],[itemDescribe],[pickAddr],[pickTime],[itemStatution],[putTime]) values('" + putUser + "','" + itemTitle + "','" + imgUrl + "','" + itemDescribe + "','" + Address + "','" + Time + "','P0','" + putTime + "')";
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    Response.Write("200");
                 }
                 else { Response.Write("404");}
-                SqlCommand cmd = new SqlCommand(sql, connection);
-                cmd.ExecuteNonQuery();
-                connection.Close();
             }
             //key==login 登陆用户，验证信息
             else if (Key == "login") {

@@ -62,13 +62,13 @@
                 <option value="书籍、档案、文件">书籍、档案、文件</option>
                 <option value="药品">药品</option>
                 <option value="雨伞等日用品">雨伞等日用品</option>
-                <option 其它>其它</option>
+                <option value="其它">其它</option>
             </select>
         </li>
         <li class="dataPut_content_box">
             <label>拾取/丢失时间：</label>*
             <input id="Time" class="text_input" type="text" maxlength="20" placeholder="此处最多二十字符" />
-        </li>
+        </:wqli>
         <li class="dataPut_content_box">
             <label>拾取/丢失地点：</label>*
             <input id="Address" class="text_input" type="text" maxlength="20" placeholder="此处最多二十字符" />
@@ -89,7 +89,7 @@
            <textarea id="itemDescribe" maxlength="160" placeholder="此处最多160字符" class="textarea_input"></textarea>
         </li>
         <li class="dataPut_content_box">
-            <label>联系方式</label>
+            <label>联系方式</label>*
             <input id="contact_user" class="text_input" type="text" maxlength="25" placeholder="请输入您的联系方式：手机号码、邮箱地址、QQ等">
         </li>
         <li class="btn_input" onclick="putData()">提交数据</li>
