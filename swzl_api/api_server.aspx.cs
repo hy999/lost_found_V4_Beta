@@ -100,20 +100,35 @@ namespace swzl_api
                 string usrName = Request.Form["usrName"].ToString();
                 string usrPassword = Request.Form["usrPassword"].ToString();
                 string lastLoginTime = DateTime.Now.ToString();
-                Response.Write(lastLoginTime);
-                /**************************/
-                /*此处写验证数据的代码并返回json数据
-                                            用户名：
-                                            code：
-                                            手机号：
-                                            Email：
-                                            Addr：
-                                            Job：
-                                            注册时间：
-                                            上一次登陆时间
-                                            上一次登陆ip及地点(暂定)
-                */
-                /**************************/
+                try{
+                    /**************************/
+                    /*此处写验证数据的代码并返回json数据
+                                                用户名：
+                                               code：
+                                                手机号：
+                                                Email：
+                                                Addr：
+                                                Job：
+                                                注册时间：
+                                                上一次登陆时间
+                                                上一次登陆ip及地点(暂定)
+                    */
+                    sql="select * from [userTable] where [userName]='"+usrName+"' and [userPassword]='"+usrPassword+"'";
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+                    reader.Close();
+                    connection.Close();
+                    if(dataTable.Rows.Count>1 || dataTable.Rows.Count<1){
+                        Response.Write("404");
+                    }else{
+                        Response.Write(JsonConvert.SerializeObject(dataTable));
+                    }
+                }
+                catch(Exception ex){
+                    Response.Write("500");
+                }
             }
         }
     }

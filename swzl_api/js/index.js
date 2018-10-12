@@ -58,7 +58,13 @@ function postData(type,data) {
                     }                    
                 }
                 else if(type==="login"){
-
+                    if(okMessage==="404"){
+                        alert("错误代码：0x48\n用户名与密码不匹配！");
+                    }else if(okMessage==="500"){
+                        alert("错误代码：0x50\n登陆服务器出现错误，请等待修复！");
+                    }else{
+                        alert("登陆成功！");
+                    }
                 }
                 else if(type==="register"){}
                 else if(type==="putData"){
@@ -110,12 +116,11 @@ function selLogin(){
         loginStation.innerText=cookies[0]+"，欢迎您！";
 
     }
-    doCookie("show");
 }
 
 //登陆操作代码
 function login(){
-    postData("login","Key=login&usrName="+document.getElementById("login_usrName").value+"&passWord="+document.getElementById("login_passWord").value);
+    postData("login","Key=login&usrName="+document.getElementById("login_usrName").value+"&usrPassword="+document.getElementById("login_passWord").value);
 }
 
 //出现登陆窗口操作代码
@@ -136,7 +141,7 @@ function judged(type) {
 function putData(){
     var judge=judged("putData");
     if(judge==="ok"){
-    var date=new Date();
+        var date=new Date();
         postData("putData", "Key=putData&itemTitle=" + document.getElementById("itemTitle").value + "&itemType=" + document.getElementById("itemType").value + "&Address=" + document.getElementById("Address").value + "&Time=" + document.getElementById("Time").value + "&imgUrl=" + document.getElementById("imgUrl").value + "&putType=" + document.getElementById("putType").value + "&itemDescribe=" + document.getElementById("itemDescribe").value + "&putTime=" + date.toUTCString()+ "&putUser=联系方式："+document.getElementById("contact_user".value))
     }else{
         alert("标记为*号的内容为必填选项，请填写后再试！");
@@ -144,7 +149,7 @@ function putData(){
 }
 //文档加载完毕执行内容
 window.onload = function () {
-    // selLogin();//验证cookie
+    selLogin();//验证cookie
     alert("尊敬的用户您好：\n\r目前本网站仅支持数据的发布与显示，其它功能将在后面的更新中完善。\n\r因为网站资源有限，暂时不支持图片的上传，请将图片上传到其它公开的图片空间，获取图片的链接填写，感谢您的配合！\n\r 在您发布数据时，请注意遵守中华人民共和国相关法律法规以及道德规范要求，请勿发布非法及恶意的言论。\n\r感谢您的配合！！");
     postData("data_lost","Key=getData&getType=lost&pageNumber=1");
     postData("data_pick","Key=getData&getType=pick&pageNumber=1");
