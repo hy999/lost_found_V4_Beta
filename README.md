@@ -43,6 +43,20 @@ And the api-server is using C#.(No ASP.NET CORE)
 
 ## Update Log
 <hr>
+Time:Otc 14 2018
+
+### update values:
+#### Add some functions:
+1,login
+
+2,register(create new accounts)
+
+3,some new bugs or questions!
+#### Fixed some bugs
+Fixed---cookies can not work
+
+Fixed---web-server can not work 
+<hr>
 Time:Otc 12 2018
 
 ### update values:
