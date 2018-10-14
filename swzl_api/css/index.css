@@ -38,11 +38,12 @@ header{
     width:10%;
     height:99.8%;
     overflow: hidden;
+    margin:auto;
     float: left;
    /* border:1px solid yellow;*/
-    font-size:x-large;
-    font-weight:bolder;
-    line-height: 50px;
+    font-size:medium;
+    font-weight:400;
+    line-height: 24px;
     text-align:center;
     color:#d4d4d4;
 
@@ -71,8 +72,8 @@ header{
 .loginBox{
     display:none;
     width:99.8%;
-
-    border:1px solid red;
+    background-color: #efefef;
+   /* border:1px solid red;*/
 }
 /****************登陆窗口结束******************/
 

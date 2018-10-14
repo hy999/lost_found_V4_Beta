@@ -61,12 +61,24 @@ function postData(type,data) {
                     if(okMessage==="404"){
                         alert("错误代码：0x48\n用户名与密码不匹配！");
                     }else if(okMessage==="500"){
-                        alert("错误代码：0x50\n登陆服务器出现错误，请等待修复！");
+                        alert("错误代码：0x50\n登陆服务器出现错误，请联系网站管理员admin@1233z.cn");
                     }else{
                         alert("登陆成功！");
+                        doCookie("login",okMessage);
+                        loginBox("clear");
+                        selLogin();
                     }
                 }
-                else if(type==="register"){}
+                else if(type==="register"){
+                    if(okMessage==="201"){
+                        alert("错误代码：0x46\n 用户名已存在");
+                    }else if(okMessage==="500"){
+                        alert("错误代码：0x47\n注册服务器出现错误，请联系网站管理员admin@1233z.cn ");
+                    }else{
+                        alert("注册成功！即将跳转到登陆界面");
+                        loginBox("login");
+                    }
+                }
                 else if(type==="putData"){
                     if(okMessage==="200"){
                         alert("数据上传成功！");
@@ -94,45 +106,87 @@ function rsa(dataStr,public_key){
     alert(private_key);
     alert(public_key);
 }
-function doCookie(type){
-    if(type==="create"){
-        document.cookie="hy"+"&"+"112233";
-    }else if(type==="show"){
-        var cookieArry=document.cookie.split("&");
-        alert("Name="+cookieArry[0]+"\t\r"+"ID="+cookieArry[1])
+function doCookie(type,data){
+    document.cookie = "seted";
+    if (type === "login") {
+        var jsonData = JSON.parse(data);
+        for (var k = 0; k < jsonData.length; k++){
+            for (var j in jsonData[k]) {
+                document.cookie += "&"+ jsonData[k][j];
+            }
+        }
+        //document.cookie = data;
+    }else if(type==="update"){
+
+    }else if(type==="clear"){
+
     }else{
         alert("mssage:erro");
     }
 }
-
 //判断cookie状态，验证登陆状态
 function selLogin(){
     const loginStation = document.getElementById("loginStation");
     const cookies = document.cookie.split("&");
-    if(cookies[0].concat("uid")){
-        loginStation.innerHTML="<a onclick='show_loginBox()'>请先登录！</a>";
-
+    if (cookies.indexOf("seted")<0) {
+        loginStation.innerHTML="<a onclick='loginBox(\"login\")'>请先登录！</a>";
     }else{
-        loginStation.innerText=cookies[0]+"，欢迎您！";
+        loginStation.innerText=cookies[1]+"，欢迎您！";
 
     }
 }
 
 //登陆操作代码
 function login(){
-    postData("login","Key=login&usrName="+document.getElementById("login_usrName").value+"&usrPassword="+document.getElementById("login_passWord").value);
+    var message=judged("login");
+    if(message==="ok"){
+        postData("login","Key=login&usrName="+document.getElementById("login_usrName").value+"&usrPassword="+document.getElementById("login_passWord").value);
+    }else if(message==="err"){
+        alert("错误代码：0x49\n您的登陆数据不符合规范！请重试");
+    }
+}
+function register() {
+    var message=judged("register");
+    if(message==="ok"){
+        postData("register","Key=register&usrName="+document.getElementById("register_usrName").value+"&usrPassword="+document.getElementById("register_passWord").value+"&eMail="+document.getElementById("register_eMail").value);
+    }else {
+        alert("错误代码：0x47\n您的数据长度不规范，请重试");
+    }
+}
+//出现登陆窗口操作代码
+function loginBox(type){
+    if(type==="login"){
+        document.getElementById("loginBox").style.display="block";
+        document.getElementById("registerBox").style.display="none";
+    }else if(type==="register"){
+        document.getElementById("registerBox").style.display="block";
+        document.getElementById("loginBox").style.display="none";
+    }
+    else{
+        document.getElementById("loginBox").style.display="none";
+        document.getElementById("registerBox").style.display="none";
+    }
 }
 
-//出现登陆窗口操作代码
-function show_loginBox(){
-    document.getElementById("loginBox").style.display="block";
-}
+//判断数据是否符合规范
 function judged(type) {
     if(type==="putData"){
         if(document.getElementById("itemTitle").value!==""&&document.getElementById("itemType").value!==""&&document.getElementById("Time").value!==""&&document.getElementById("Address").value!==""&&document.getElementById("putType").value!==""&&document.getElementById("contact_user").value!==""){
             return "ok";
         }else{
             return "err";
+        }
+    }else if(type==="login"){
+        if(document.getElementById("login_usrName").value!=="" && document.getElementById("login_passWord").value.length>=6 && document.getElementById("login_usrName").value.length>=6){
+            return "ok";
+        }else{
+            return "err"
+        }
+    }else if(type==="register"){
+        if(document.getElementById("register_usrName").value!==""&&document.getElementById("register_passWord").value!==""&&document.getElementById("register_confirm_passWord").value!==""&&document.getElementById("register_eMail").value!==""&&document.getElementById("register_passWord").value===document.getElementById("register_confirm_passWord").value&&document.getElementById("register_usrName").value.length>=6&&document.getElementById("register_passWord").value.length>=6){
+            return "ok";
+        }else {
+            return "err"
         }
     }else{
         return "err";
